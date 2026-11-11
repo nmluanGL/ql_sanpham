@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Bút bi xanh",
+    "price": 5000,
+    "soluong": 30,
+    "image": "https://example.com/anh-mau/but-bi-xanh.jpg"
+  },
+  {
+    "name": "Sổ tay A5",
+    "price": 32000,
+    "soluong": 12,
+    "image": "https://example.com/anh-mau/so-tay-a5.jpg"
+  }
+]

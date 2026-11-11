@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "150858544473",
+    "project_id": "quanlysanpham-7e79a",
+    "storage_bucket": "quanlysanpham-7e79a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:150858544473:android:42f7237c8b5cd0e6e98848",
+        "android_client_info": {
+          "package_name": "vn.edu.student.quan_ly_san_pham"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGbWW894S2DHH6A-MsS6dWZ2iY7VNosqo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
