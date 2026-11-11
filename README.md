@@ -1,6 +1,23 @@
-# Quản lý sản phẩm dành cho admin
+# Quản lý sản phẩm
 
-Ứng dụng Flutter Web và Android dùng Firebase Authentication và Cloud Firestore. Web và Android đăng ký trong cùng một Firebase project và dùng chung collection `products`.
+Ứng dụng Flutter quản lý sản phẩm trên Web và Android. Firebase Authentication xác thực người dùng, Cloud Firestore lưu thông tin sản phẩm và Cloudinary lưu ảnh. Hai nền tảng dùng chung collection `products`.
+
+- Đăng nhập và đăng xuất bằng email.
+- Xem thống kê tồn kho, tìm sản phẩm theo tên.
+- Thêm, sửa và xóa sản phẩm. Có thể chọn ảnh từ thiết bị hoặc nhập URL HTTPS.
+
+Xem [báo cáo và kịch bản demo](BAO_CAO.md) cùng [tệp JSON minh họa cấu trúc dữ liệu](products.json).
+
+## Cấu trúc mã nguồn
+
+| File | Chức năng |
+| --- | --- |
+| `lib/main.dart` | Khởi tạo Firebase và chọn màn hình theo phiên đăng nhập |
+| `lib/login_screen.dart` | Màn hình đăng nhập |
+| `lib/products_screen.dart` | Tổng quan kho, danh sách và tìm kiếm |
+| `lib/product_form.dart` | Form thêm, sửa và xem trước ảnh |
+| `lib/product_service.dart` | Đọc và ghi bốn trường sản phẩm trên Firestore |
+| `lib/cloudinary_image_upload.dart` | Tải ảnh lên Cloudinary và nhận URL |
 
 ## Chuẩn bị công cụ
 
@@ -31,7 +48,7 @@ firebase deploy --only firestore:rules --project PROJECT_ID
 
 FlutterFire tạo `lib/firebase_options.dart` cho hai nền tảng. Cấu hình đi kèm trỏ đến `quanlysanpham-7e79a`.
 
-Khi thêm hoặc sửa sản phẩm, dán URL HTTPS trực tiếp của ảnh vào ô **Link ảnh**. Firestore lưu URL vào trường `image` và ứng dụng tải ảnh từ URL đó. Nếu giữ nguyên ô này khi sửa, sản phẩm tiếp tục dùng ảnh cũ.
+Khi thêm hoặc sửa sản phẩm, bấm ô **Thêm ảnh** để chọn tệp hoặc dán URL HTTPS vào ô **Link ảnh**. Firestore lưu URL vào trường `image` và ứng dụng tải ảnh từ URL đó. Nếu giữ nguyên ô này khi sửa, sản phẩm tiếp tục dùng ảnh cũ.
 
 ## Chạy ứng dụng
 
@@ -53,9 +70,8 @@ Nếu Gradle báo thiếu NDK 28.2.13676358, mở Android Studio → SDK Manager
 
 ## Chọn ảnh từ máy với Cloudinary
 
-Trong Cloudinary, tạo Upload preset ở chế độ Unsigned. Giới hạn preset cho ảnh sản phẩm và dung lượng phù hợp. Dùng Cloud name và tên preset trong lệnh chạy. Không đặt API secret trong app. Preset unsigned có thể được gọi từ bên ngoài app, vì vậy chỉ bật preset khi cần dùng.
+Bản demo đã có cấu hình mặc định. Nếu dùng Cloudinary riêng, tạo Upload preset ở chế độ Unsigned. Giới hạn preset cho ảnh sản phẩm và dung lượng phù hợp. Dùng Cloud name và tên preset trong lệnh chạy. Không đặt API secret trong app. Preset unsigned có thể được gọi từ bên ngoài app, vì vậy chỉ bật preset khi cần dùng.
 
     flutter run -d DEVICE_ID --dart-define=CLOUDINARY_CLOUD_NAME=YOUR_CLOUD_NAME --dart-define=CLOUDINARY_UPLOAD_PRESET=YOUR_PRESET
 
 Khi chọn tệp rồi lưu, app gửi ảnh lên Cloudinary và ghi URL HTTPS trả về vào Firestore. Nếu chưa cấu hình Cloudinary, có thể tiếp tục dán link HTTPS.
-
