@@ -64,9 +64,6 @@ Thay `DEVICE_ID` bằng ID Android từ `flutter devices`. Đăng nhập bằng 
 
 Nếu Gradle báo thiếu NDK 28.2.13676358, mở Android Studio → SDK Manager → SDK Tools, bật Show Package Details rồi cài đúng bản NDK (Side by side). Chạy lại `flutter doctor` và `flutter run -d DEVICE_ID`.
 
-## Dữ liệu nộp bài
-
-`products.json` là **dữ liệu mẫu**, các URL thuộc miền minh họa. Để nộp dữ liệu thật, sau khi demo mở **Firestore Database → Data → products**, chép các document đã lưu vào một mảng JSON. Mỗi phần tử giữ đúng `name`, `price`, `soluong`, `image`. Giữ giá và số lượng ở dạng số, chép URL ảnh thật và bỏ ID document. Kiểm tra JSON bằng `Get-Content -Raw products.json | ConvertFrom-Json` trong PowerShell.
 
 ## Chọn ảnh từ máy với Cloudinary
 
