@@ -6,7 +6,7 @@
 - Xem thống kê tồn kho, tìm sản phẩm theo tên.
 - Thêm, sửa và xóa sản phẩm. Có thể chọn ảnh từ thiết bị hoặc nhập URL HTTPS.
 
-Xem [báo cáo và kịch bản demo](BAO_CAO.md) cùng [tệp JSON minh họa cấu trúc dữ liệu](products.json).
+Xem [tệp JSON minh họa cấu trúc dữ liệu](products.json).
 
 ## Cấu trúc mã nguồn
 
